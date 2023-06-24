@@ -1,0 +1,31 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class KeyboardInputManager : InputManager
+{
+    public static event MoveInputHandler OnMoveInput;
+    public static event RotateInputHandler OnRotateInput;
+    public static event ZoomInputHandler OnZoomInput;
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (Input.GetKey(KeyCode.W))
+        {
+            OnMoveInput?.Invoke(Vector3.forward);
+        }
+        if (Input.GetKey(KeyCode.S))
+        {
+            OnMoveInput?.Invoke(-Vector3.forward);
+        }
+        if (Input.GetKey(KeyCode.A))
+        {
+            OnMoveInput?.Invoke(-Vector3.right);
+        }
+        if (Input.GetKey(KeyCode.D))
+        {
+            OnMoveInput?.Invoke(Vector3.right);
+        }
+    }
+}
