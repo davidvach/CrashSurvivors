@@ -27,5 +27,23 @@ public class KeyboardInputManager : InputManager
         {
             OnMoveInput?.Invoke(Vector3.right);
         }
+
+        if (Input.GetKey(KeyCode.E))
+        {
+            OnRotateInput?.Invoke(-1f);
+        }
+        if (Input.GetKey(KeyCode.Q))
+        {
+            OnRotateInput?.Invoke(1f);
+        }
+
+        if (Input.GetKey(KeyCode.Y))
+        {
+            OnZoomInput?.Invoke(-1f);
+        }
+        if (Input.GetKey(KeyCode.Z))
+        {
+            OnZoomInput?.Invoke(1f);
+        }
     }
 }
